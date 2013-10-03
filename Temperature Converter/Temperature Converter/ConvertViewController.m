@@ -35,4 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)fahrenheitValue:(id)sender {
+}
 @end

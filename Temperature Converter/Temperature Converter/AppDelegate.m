@@ -7,12 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "ConvertViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    ConvertViewController *convertViewController = [[ConvertViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:convertViewController];
+    self.window.rootViewController = navController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
