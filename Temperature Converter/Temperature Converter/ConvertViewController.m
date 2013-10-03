@@ -22,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Temperature Converter";
+        self.title = @"Temperature";
     }
     return self;
 }
