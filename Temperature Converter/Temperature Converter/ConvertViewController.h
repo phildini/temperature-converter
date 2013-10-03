@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConvertViewController : UIViewController
+@interface ConvertViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, strong) IBOutlet UITextField *fahrenheitTextField;
+@property (nonatomic, strong) IBOutlet UITextField *celsiusTextField;
+
+- (IBAction)tapToEnd;
 
 @end

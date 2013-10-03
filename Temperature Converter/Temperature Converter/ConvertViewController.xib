@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConvertViewController">
             <connections>
+                <outlet property="celsiusTextField" destination="KBn-WN-8uK" id="bfw-lH-jO6"/>
+                <outlet property="fahrenheitTextField" destination="ztq-dD-w2M" id="l3a-fo-xR6"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -41,8 +43,17 @@
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="hEC-hL-9y6" appends="YES" id="IEH-Ex-Q14"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="hEC-hL-9y6">
+            <connections>
+                <action selector="tapToEnd" destination="-1" id="eLT-ce-SUW"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

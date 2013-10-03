@@ -10,6 +10,10 @@
 
 @interface ConvertViewController ()
 
+- (void)tapToEnd;
+- (void)fahrenheitEndEditing;
+- (void)celsiusEndEditing;
+
 @end
 
 @implementation ConvertViewController
@@ -26,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.fahrenheitTextField.delegate = self;
+    self.celsiusTextField.delegate = self;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,6 +42,59 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)fahrenheitValue:(id)sender {
+# pragma mark - UITextField Delegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    if (textField == self.fahrenheitTextField) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(fahrenheitEndEditing)];
+    }
+    if (textField == self.celsiusTextField) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(celsiusEndEditing)];
+    }
+    
+    return YES;
 }
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    if (textField == self.fahrenheitTextField) {
+        [self fahrenheitEndEditing];
+    }
+    
+    if (textField == self.celsiusTextField) {
+        [self celsiusEndEditing];
+    }
+    
+    [self.view endEditing:YES];
+    
+    return YES;
+}
+
+
+#pragma mark - Private Methods
+
+- (void)tapToEnd {
+    [self.view endEditing:YES];
+}
+
+- (void)fahrenheitEndEditing {
+    [self.view endEditing:YES];
+    float fahrenheit = [self.fahrenheitTextField.text floatValue];
+    
+    float celsius = (fahrenheit - 32) * 5/9;
+    
+    self.celsiusTextField.text = [NSString stringWithFormat:@"%0.2f", celsius];
+}
+
+- (void)celsiusEndEditing {
+    [self.view endEditing:YES];
+    float celsius = [self.celsiusTextField.text floatValue];
+    
+    float fahrenheit = (celsius * 9/5) + 32;
+    
+    self.fahrenheitTextField.text = [NSString stringWithFormat:@"%0.2f", fahrenheit];
+}
+
 @end
