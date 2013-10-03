@@ -85,7 +85,7 @@
     
     float celsius = (fahrenheit - 32) * 5/9;
     
-    self.celsiusTextField.text = [NSString stringWithFormat:@"%0.2f", celsius];
+    self.celsiusTextField.text = [NSString stringWithFormat:@"%0.2fº", celsius];
 }
 
 - (void)celsiusEndEditing {
@@ -94,7 +94,7 @@
     
     float fahrenheit = (celsius * 9/5) + 32;
     
-    self.fahrenheitTextField.text = [NSString stringWithFormat:@"%0.2f", fahrenheit];
+    self.fahrenheitTextField.text = [NSString stringWithFormat:@"%0.2fº", fahrenheit];
 }
 
 @end
