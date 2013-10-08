@@ -47,10 +47,10 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
     if (textField == self.fahrenheitTextField) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(fahrenheitEndEditing)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Convert" style:UIBarButtonSystemItemDone target:self action:@selector(fahrenheitEndEditing)];
     }
     if (textField == self.celsiusTextField) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(celsiusEndEditing)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Convert" style:UIBarButtonSystemItemDone target:self action:@selector(celsiusEndEditing)];
     }
     
     return YES;
