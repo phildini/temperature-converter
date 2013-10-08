@@ -10,10 +10,6 @@
 
 @interface ConvertViewController ()
 
-- (void)tapToEnd;
-- (void)fahrenheitEndEditing;
-- (void)celsiusEndEditing;
-
 @end
 
 @implementation ConvertViewController
